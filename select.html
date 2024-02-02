@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="productForm">
+      <select id="size" name="size" onchange="updatePrice()">
+        <option value="small">Nhỏ</option>
+        <option value="medium">Trung bình</option>
+        <option value="large">Lớn</option>
+      </select>
+    </form>
+    <div id="message"></divid>
+  </body>
+  <script>
+    function updatePrice() {
+      var size = document.getElementById("size").value;
+      var message = document.getElementById("message");
+      var small = "kich thuoc 30 x 40";
+      var medium = "kich thuoc 30 x 50";
+      var large = "kich thuoc 30 x 60";
+
+      if (size === "small") {
+        document.getElementById("message").textContent = small;
+    } else if (size === "medium") {
+          document.getElementById("message").textContent = medium;
+        } else if (size === "large") {
+          document.getElementById("message").textContent = large;
+      }
+    }
+  </script>
+</html>

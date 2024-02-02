@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping response</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="icon/css/all.css" />
+  </head>
+  <body>
+    <section class="payment-section">
+      <div class="container">
+        <div class="payment-wrapper">
+          <div class="payment-left">
+            <div class="payment-header">
+              <div class="payment-header-icon">
+                <i class="fa-solid fa-bolt"></i>
+              </div>
+              <div class="payment-header-title">Thong tin lien</div>
+              <p class="payment-header-description">
+                Lorem ipsum dolor sit amet consectetur adipisicing.
+              </p>
+            </div>
+            <div class="payment-content">
+              <div class="payment-body">
+                <div class="payment-plan">
+                  <div class="payment-plan-type">Pro</div>
+                  <div class="payment-plan-info">
+                    <div class="payment-plan-info-name">Professional Plan</div>
+                    <div class="payment-plan-info-price">$49 per month</div>
+                  </div>
+                  <a href="#" class="payment-plan-change">Change</a>
+                </div>
+                <div class="payment-summary">
+                  <div class="payment-summary-item">
+                    <div class="payment-summary-name">
+                      Ho va ten nguoi van chuyen
+                    </div>
+                    <div class="payment-summary-price">Raikip</div>
+                  </div>
+                  <div class="payment-summary-item">
+                    <div class="payment-summary-name">So dien thoai</div>
+                    <div class="payment-summary-price">-$10</div>
+                  </div>
+                  <div class="payment-summary-item">
+                    <div class="payment-summary-name">Dia chi</div>
+                    <div class="payment-summary-price">-$10</div>
+                  </div>
+                  <div class="payment-summary-item">
+                    <div class="payment-summary-name">Ghi chu</div>
+                    <div class="payment-summary-price">-$10</div>
+                  </div>
+                  <div class="payment-summary-divider"></div>
+                  <div class="payment-summary-item payment-summary-total">
+                    <div class="payment-summary-name">Total</div>
+                    <div class="payment-summary-price">-$10</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="payment-right">
+            <form action="index.html" class="payment-form">
+              <h1 class="payment-title">Payment Details</h1>
+              <div class="payment-method">
+                <input
+                  type="radio"
+                  value="Thanh toan bang momo"
+                  name="payment-method"
+                  id="method-1"
+                />
+                <label for="method-1" class="payment-method-item">
+                  <img src="checkout/momo.png" alt="" />
+                </label>
+                <input
+                  type="radio"
+                  value="Thanh toan bang vnpay"
+                  name="payment-method"
+                  id="method-2"
+                />
+                <label for="method-2" class="payment-method-item">
+                  <img src="checkout/vnpay.png" alt="" />
+                </label>
+                <input
+                  type="radio"
+                  value="Thah toan bang chuyen khoan"
+                  name="payment-method"
+                  id="method-3"
+                />
+                <label for="method-3" class="payment-method-item">
+                  <img src="checkout/paypal.png" alt="" />
+                </label>
+                <input
+                  type="radio"
+                  value="Thanh toan bang tien mat"
+                  name="payment-method"
+                  id="method-4"
+                />
+                <label for="method-4" class="payment-method-item">
+                  <img src="checkout/stripe.png" alt="" />
+                </label>
+              </div>
+              <!-- <div class="payment-form-group">
+                <input
+                  type="email"
+                  placeholder=" "
+                  class="payment-form-control"
+                  id="email"
+                />
+                <label
+                  for="email"
+                  class="payment-form-label payment-form-label-required"
+                  >Email Address</label
+                >
+              </div>
+              <div class="payment-form-group">
+                <input
+                  type="text"
+                  placeholder=" "
+                  class="payment-form-control"
+                  id="card-number"
+                />
+                <label
+                  for="card-number"
+                  class="payment-form-label payment-form-label-required"
+                  >Card Number</label
+                >
+              </div>
+              <div class="payment-form-group-flex">
+                <div class="payment-form-group">
+                  <input
+                    type="date"
+                    placeholder=" "
+                    class="payment-form-control"
+                    id="expiry-date"
+                  />
+                  <label
+                    for="expiry-date"
+                    class="payment-form-label payment-form-label-required"
+                    >Expiry Date</label
+                  >
+                </div>
+                <div class="payment-form-group">
+                  <input
+                    type="text"
+                    placeholder=" "
+                    class="payment-form-control"
+                    id="cvv"
+                  />
+                  <label
+                    for="cvv"
+                    class="payment-form-label payment-form-label-required"
+                    >CVV</label
+                  >
+                </div>
+              </div> -->
+              <span id="require"></span>
+              <span id="message"></span>
+              <button
+                id="confirmButton"
+                type="submit"
+                class="payment-form-submit-button"
+              >
+                <i class="ri-wallet-line"></i> Pay
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      var radioInputs = document.querySelectorAll(
+        "input[type=radio][name=payment-method]"
+      );
+      document
+        .getElementById("confirmButton")
+        .addEventListener("click", function (event) {
+          // Lấy tất cả các input radio có name là "payment-method"
+          var radioInputs = document.querySelectorAll(
+            "input[type=radio][name=payment-method]"
+          );
+
+          // Biến kiểm tra xem có ít nhất một input radio được chọn hay không
+          var atLeastOneChecked = false;
+
+          // Lặp qua từng input radio để kiểm tra
+          radioInputs.forEach(function (radio) {
+            if (radio.checked) {
+              atLeastOneChecked = true;
+            }
+          });
+
+          // Nếu không có input radio nào được chọn, hiển thị thông báo và ngăn chặn hành vi mặc định của nút button
+          if (!atLeastOneChecked) {
+            var messageSpan = document.getElementById("message");
+            messageSpan.innerText = "Vui lòng chọn phương thức thanh toán.";
+            event.preventDefault(); // Ngăn chặn hành vi mặc định của nút button
+          } else {
+            // Nếu có ít nhất một input radio được chọn, xóa thông báo nếu có
+            var messageSpan = document.getElementById("message");
+            messageSpan.innerText = "";
+          }
+        });
+
+      // Lặp qua từng input radio và thêm sự kiện onchange
+      radioInputs.forEach(function (radio) {
+        radio.addEventListener("change", function () {
+          // Lấy giá trị của input radio được chọn
+          var selectedOption = this.value;
+
+          // Hiển thị thông báo tương ứng
+          var messageSpan = document.getElementById("message");
+          messageSpan.innerText = "Bạn đã chọn: " + selectedOption;
+        });
+      });
+    </script>
+  </body>
+</html>
